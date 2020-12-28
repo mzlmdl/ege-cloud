@@ -70,7 +70,6 @@ def add_item():
 def add_item():
     if request.method == "POST":  # delete item
         index_number = request.form["index_number"]
-        qty = request.form["quantity"]
         error = None
         if not index_number:
             error = "Item Name is required"
