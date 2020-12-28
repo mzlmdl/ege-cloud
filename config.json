@@ -2,8 +2,8 @@
     "database": {
         "host": "mzlmskywalker.postgres.database.azure.com",
         "dbname": "postgres",
-        "user": "mzlm",
-        "password": "Bjk1903**",
+        "user": "mzlmdl",
+        "password": "Bjk1903*",
         "ssl": "require"
     }
 }
