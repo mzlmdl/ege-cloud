@@ -66,6 +66,25 @@ def add_item():
 
     return render_template("add.html")  # serve page
 
+@app.route('/delete', methods=("GET", "POST"))
+def add_item():
+    if request.method == "POST":  # delete item
+        index_number = request.form["index_number"]
+        qty = request.form["quantity"]
+        error = None
+        if not index_number:
+            error = "Item Name is required"
+
+        if error is None:
+            db = Database()
+            with db.get_cursor() as cursor:
+                cursor.execute("DELETE FROM inventory WHERE no = ? ", (index_number, qty))
+            db.commit()
+            return redirect(url_for("list_items"))
+
+        flash(error)
+
+    return render_template("delete.html")  # serve page
 
 if __name__ == '__main__':
     app.run()
